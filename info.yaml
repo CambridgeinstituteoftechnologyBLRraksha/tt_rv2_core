@@ -1,87 +1,96 @@
+# Tiny Tapeout project configuration
+yaml_version: 6
+
 project:
   title:        "Tiny RV32 Core"
   author:       "Raksha"
   discord:      ""
-  description:  "Lightweight multi-cycle RV32I core with debug multiplexer"
+  description:  "Multi-cycle RV32I core with debug multiplexer"
   language:     "Verilog"
   clock_hz:     10000000
 
-  # How many tiles your design takes? (2x2 fits a small RV32 core)
+  # How many tiles your design takes?
   tiles: "2x2"
 
-  # Your top module name (inside project.v)
+  # Your top module name (must match module name in project.v)
   top_module:  "tt_um_riscv_core"
 
-  # List all your Verilog source files here (relative to repo root)
+  # List your source files here (relative to src/)
   source_files:
-    - "src/project.v"
-    - "src/riscv_core.v"
+    - "project.v"
+    - "riscv_core.v"
 
-# Pinout definition
+# Pinout configuration for documentation and testing
 pinout:
-  ui[0]: "debug_sel[0]"
-  ui[1]: "debug_sel[1]"
-  ui[2]: "debug_sel[2]"
-  ui[3]: "byte_sel[0]"
-  ui[4]: "byte_sel[1]"
-  ui[5]: "none"
-  ui[6]: "none"
-  ui[7]: "none"
+  # Dedicated inputs
+  ui:
+    - "debug_sel[0]"
+    - "debug_sel[1]"
+    - "debug_sel[2]"
+    - "byte_sel[0]"
+    - "byte_sel[1]"
+    - "none"
+    - "none"
+    - "none"
 
-  uo[0]: "debug_out[0]"
-  uo[1]: "debug_out[1]"
-  uo[2]: "debug_out[2]"
-  uo[3]: "debug_out[3]"
-  uo[4]: "debug_out[4]"
-  uo[5]: "debug_out[5]"
-  uo[6]: "debug_out[6]"
-  uo[7]: "debug_out[7]"
+  # Dedicated outputs
+  uo:
+    - "debug_out[0]"
+    - "debug_out[1]"
+    - "debug_out[2]"
+    - "debug_out[3]"
+    - "debug_out[4]"
+    - "debug_out[5]"
+    - "debug_out[6]"
+    - "debug_out[7]"
 
-  uio[0]: "heartbeat"
-  uio[1]: "none"
-  uio[2]: "none"
-  uio[3]: "none"
-  uio[4]: "none"
-  uio[5]: "none"
-  uio[6]: "none"
-  uio[7]: "none"
+  # Bidirectional IOs
+  uio:
+    - "heartbeat"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
 
-# Documentation
+# Project documentation
 documentation: 
-  author: "Raksha"
-  title: "Tiny RV32 Core"
-  language: "Verilog"
-  description: "Lightweight multi-cycle RV32I core with debug multiplexer"
-  how_it_works: "Multi-cycle RISC-V executing demo program from internal ROM."
-  how_to_test: "Clock the core, toggle debug_sel and byte_sel on ui_in to read registers on uo_out."
-  external_hw: "None"
-  doc_link: ""
-  clock_hz: 10000000
-  picture: ""
+  author:       "Raksha"
+  title:        "Tiny RV32 Core"
+  language:     "Verilog"
+  description:  "Multi-cycle RV32I core with debug multiplexer"
+  how_it_works: "Executes demo instructions from internal ROM."
+  how_to_test:  "Clock the core, toggle ui inputs to inspect registers on uo."
+  external_hw:  "None"
+  doc_link:     ""
+  clock_hz:     10000000
+  picture:      ""
   inputs:
-    - debug_sel[0]
-    - debug_sel[1]
-    - debug_sel[2]
-    - byte_sel[0]
-    - byte_sel[1]
-    - none
-    - none
-    - none
+    - "debug_sel[0]"
+    - "debug_sel[1]"
+    - "debug_sel[2]"
+    - "byte_sel[0]"
+    - "byte_sel[1]"
+    - "none"
+    - "none"
+    - "none"
   outputs:
-    - debug_out[0]
-    - debug_out[1]
-    - debug_out[2]
-    - debug_out[3]
-    - debug_out[4]
-    - debug_out[5]
-    - debug_out[6]
-    - debug_out[7]
+    - "debug_out[0]"
+    - "debug_out[1]"
+    - "debug_out[2]"
+    - "debug_out[3]"
+    - "debug_out[4]"
+    - "debug_out[5]"
+    - "debug_out[6]"
+    - "debug_out[7]"
   bidirectional:
-    - heartbeat
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - "heartbeat"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
+    - "none"
