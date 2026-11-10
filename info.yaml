@@ -3,7 +3,7 @@ yaml_version: 6
 project:
   title: "Tiny RV32 Core"
   author: "Raksha"
-  discord: ""
+  discord: "none"
   description: "Multi-cycle RV32I core with debug multiplexer"
   language: "Verilog"
   clock_hz: 10000000
