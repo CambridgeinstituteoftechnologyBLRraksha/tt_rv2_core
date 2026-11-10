@@ -1,55 +1,87 @@
-# Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "Tiny RV32 Core"
+  author:       "Raksha"
+  discord:      ""
+  description:  "Lightweight multi-cycle RV32I core with debug multiplexer"
+  language:     "Verilog"
+  clock_hz:     10000000
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "2x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  # How many tiles your design takes? (2x2 fits a small RV32 core)
+  tiles: "2x2"
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  # Your top module name (inside project.v)
   top_module:  "tt_um_riscv_core"
 
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  # List all your Verilog source files here (relative to repo root)
   source_files:
-    - "project.v"
+    - "src/project.v"
+    - "src/riscv_core.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+# Pinout definition
 pinout:
-  # Inputs
- ui[0]: "debug_sel[0]"
-ui[1]: "debug_sel[1]"
-ui[2]: "debug_sel[2]"
-ui[3]: "byte_sel[0]"
-ui[4]: "byte_sel[1]"
-ui[5]: "none"
-ui[6]: "none"
-ui[7]: "none"
+  ui[0]: "debug_sel[0]"
+  ui[1]: "debug_sel[1]"
+  ui[2]: "debug_sel[2]"
+  ui[3]: "byte_sel[0]"
+  ui[4]: "byte_sel[1]"
+  ui[5]: "none"
+  ui[6]: "none"
+  ui[7]: "none"
 
-uo[0]: "debug_out[0]"
-uo[1]: "debug_out[1]"
-uo[2]: "debug_out[2]"
-uo[3]: "debug_out[3]"
-uo[4]: "debug_out[4]"
-uo[5]: "debug_out[5]"
-uo[6]: "debug_out[6]"
-uo[7]: "debug_out[7]"
+  uo[0]: "debug_out[0]"
+  uo[1]: "debug_out[1]"
+  uo[2]: "debug_out[2]"
+  uo[3]: "debug_out[3]"
+  uo[4]: "debug_out[4]"
+  uo[5]: "debug_out[5]"
+  uo[6]: "debug_out[6]"
+  uo[7]: "debug_out[7]"
 
-uio[0]: "heartbeat"
-uio[1]: "none"
-uio[2]: "none"
-uio[3]: "none"
-uio[4]: "none"
-uio[5]: "none"
-uio[6]: "none"
-uio[7]: "none"
+  uio[0]: "heartbeat"
+  uio[1]: "none"
+  uio[2]: "none"
+  uio[3]: "none"
+  uio[4]: "none"
+  uio[5]: "none"
+  uio[6]: "none"
+  uio[7]: "none"
 
-
-# Do not change!
-yaml_version: 6
+# Documentation
+documentation: 
+  author: "Raksha"
+  title: "Tiny RV32 Core"
+  language: "Verilog"
+  description: "Lightweight multi-cycle RV32I core with debug multiplexer"
+  how_it_works: "Multi-cycle RISC-V executing demo program from internal ROM."
+  how_to_test: "Clock the core, toggle debug_sel and byte_sel on ui_in to read registers on uo_out."
+  external_hw: "None"
+  doc_link: ""
+  clock_hz: 10000000
+  picture: ""
+  inputs:
+    - debug_sel[0]
+    - debug_sel[1]
+    - debug_sel[2]
+    - byte_sel[0]
+    - byte_sel[1]
+    - none
+    - none
+    - none
+  outputs:
+    - debug_out[0]
+    - debug_out[1]
+    - debug_out[2]
+    - debug_out[3]
+    - debug_out[4]
+    - debug_out[5]
+    - debug_out[6]
+    - debug_out[7]
+  bidirectional:
+    - heartbeat
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
+    - none
