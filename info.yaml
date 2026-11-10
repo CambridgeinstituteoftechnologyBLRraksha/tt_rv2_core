@@ -12,8 +12,8 @@ project:
   top_module:  "tt_um_riscv_core"
 
   source_files:
-    - "src/project.v"
-    - "src/riscv_core.v"
+    - "project.v"
+    - "riscv_core.v"
 
 pinout:
   ui[0]: "debug_sel[0]"
