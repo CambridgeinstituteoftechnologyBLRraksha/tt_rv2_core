@@ -9,7 +9,7 @@ project:
   clock_hz: 10000000
   tiles: "2x2"
   top_module: "tt_um_riscv_core"
-    source_files:
+  source_files:
     - "project.v"
     - "riscv_core.v"
 
@@ -22,7 +22,6 @@ pinout:
   ui[5]: "none"
   ui[6]: "none"
   ui[7]: "none"
-
   uo[0]: "debug_out[0]"
   uo[1]: "debug_out[1]"
   uo[2]: "debug_out[2]"
@@ -31,7 +30,6 @@ pinout:
   uo[5]: "debug_out[5]"
   uo[6]: "debug_out[6]"
   uo[7]: "debug_out[7]"
-
   uio[0]: "heartbeat"
   uio[1]: "none"
   uio[2]: "none"
