@@ -11,9 +11,10 @@ project:
   tiles: "2x2"
   top_module:  "tt_um_riscv_core"
 
-  source_files:
-    - "project.v"
-    - "riscv_core.v"
+    source_files:
+    - "src/project.v"
+    - "src/riscv_core.v"
+
 
 pinout:
   ui[0]: "debug_sel[0]"
