@@ -1,20 +1,17 @@
 yaml_version: 6
 
 project:
-  title:        "Tiny RV32 Core"
-  author:       "Raksha"
-  discord:      ""
-  description:  "Multi-cycle RV32I core with debug multiplexer"
-  language:     "Verilog"
-  clock_hz:     10000000
-
+  title: "Tiny RV32 Core"
+  author: "Raksha"
+  discord: ""
+  description: "Multi-cycle RV32I core with debug multiplexer"
+  language: "Verilog"
+  clock_hz: 10000000
   tiles: "2x2"
-  top_module:  "tt_um_riscv_core"
-
-    source_files:
-    - "src/project.v"
-    - "src/riscv_core.v"
-
+  top_module: "tt_um_riscv_core"
+  source_files:
+    - "project.v"
+    - "riscv_core.v"
 
 pinout:
   ui[0]: "debug_sel[0]"
@@ -45,16 +42,16 @@ pinout:
   uio[7]: "none"
 
 documentation:
-  author:       "Raksha"
-  title:        "Tiny RV32 Core"
-  language:     "Verilog"
-  description:  "Multi-cycle RV32I core with debug multiplexer"
+  author: "Raksha"
+  title: "Tiny RV32 Core"
+  language: "Verilog"
+  description: "Multi-cycle RV32I core with debug multiplexer"
   how_it_works: "Executes demo instructions from internal ROM."
-  how_to_test:  "Clock the core, toggle ui inputs to inspect registers on uo."
-  external_hw:  "None"
-  doc_link:     ""
-  clock_hz:     10000000
-  picture:      ""
+  how_to_test: "Clock the core, toggle ui inputs to inspect registers on uo."
+  external_hw: "None"
+  doc_link: ""
+  clock_hz: 10000000
+  picture: ""
   inputs:
     - "debug_sel[0]"
     - "debug_sel[1]"
